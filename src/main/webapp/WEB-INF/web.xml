@@ -1,0 +1,11 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.5">
+
+
+
+    <!-- Specify Login mechanism using Basic auth and a specific realm "file" declared in web container -->
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>file</realm-name>
+    </login-config>
+
+</web-app>

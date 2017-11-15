@@ -1,0 +1,17 @@
+<glassfish-web-app>
+    <security-role-mapping>
+        <role-name>customRole1</role-name>
+        <principal-name>customUser1</principal-name>
+        <principal-name>customUser2</principal-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>customRole2</role-name>
+        <principal-name>customUser2</principal-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>customRole3</role-name>
+        <group-name>customGroup</group-name>
+    </security-role-mapping>
+</glassfish-web-app>
