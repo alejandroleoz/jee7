@@ -3,9 +3,19 @@
 
 
     <!-- Specify Login mechanism using Basic auth and a specific realm "file" declared in web container -->
+    <!--<login-config>-->
+        <!--<auth-method>BASIC</auth-method>-->
+        <!--<realm-name>file</realm-name>-->
+    <!--</login-config>-->
+
+    <!-- Specify Login mechanism using FORM auth and a specific realm "file" declared in web container -->
     <login-config>
-        <auth-method>BASIC</auth-method>
+        <auth-method>FORM</auth-method>
         <realm-name>file</realm-name>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/loginError.html</form-error-page>
+        </form-login-config>
     </login-config>
 
 </web-app>
