@@ -14,8 +14,21 @@
         <realm-name>file</realm-name>
         <form-login-config>
             <form-login-page>/login.html</form-login-page>
-            <form-error-page>/loginError.html</form-error-page>
+            <form-error-page>/error/loginError.html</form-error-page>
         </form-login-config>
     </login-config>
+
+
+    <!-- Not Found -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.html</location>
+    </error-page>
+
+    <!-- Forbidden -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/403.html</location>
+    </error-page>
 
 </web-app>
