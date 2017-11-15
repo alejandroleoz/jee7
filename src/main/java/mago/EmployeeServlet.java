@@ -10,9 +10,9 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // Configuration of the Servlet (endpoint, init params, etc)
@@ -43,12 +43,19 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        employees = new ArrayList<>();
-        employees.add(new Employee("Alejandro", "Leoz"));
-        employees.add(new Employee("Leandro", "Romagnoli"));
 
+        // read init parameter
         this.format = config.getInitParameter("format");
+
+        // load resource
+        InputStream inputStream = config.getServletContext().getResourceAsStream("/WEB-INF/customData/defaultEmployees.json");
+        Reader reader = new InputStreamReader(inputStream);
+
+        // init default employees
         this.gson = new Gson();
+        Employee[] empFromJSON = this.gson.fromJson(reader, Employee[].class);
+        this.employees = new ArrayList<>();
+        this.employees.addAll(Arrays.asList(empFromJSON));
     }
 
     @Override
